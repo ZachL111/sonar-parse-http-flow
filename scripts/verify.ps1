@@ -63,3 +63,9 @@ ruby -Ilib tests/test_policy.rb
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-sonar-parse-http-detail.ps1
 
 ruby -Ilib tests/test_domain_review.rb
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-sonar-parse-http-properties.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-sonar-parse-http-golden.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
