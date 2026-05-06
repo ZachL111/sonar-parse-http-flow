@@ -1,0 +1,32 @@
+{
+  "index": 538,
+  "phase": 2,
+  "batch": 60,
+  "name": "sonar-parse-http-flow",
+  "planned_name": "sonar-parse-http-flow",
+  "language": "Ruby",
+  "category": "Parsers",
+  "goal": "Implement a Ruby parsers project for http state machine modeling, using transition tables and invalid-transition tests.",
+  "repository_url": "https://github.com/ZachL111/sonar-parse-http-flow",
+  "verification_command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify.ps1",
+  "model": {
+    "inputs": [
+      "demand",
+      "capacity",
+      "latency",
+      "risk",
+      "weight"
+    ],
+    "threshold": 176,
+    "risk_penalty": 7,
+    "latency_penalty": 2,
+    "weight_bonus": 5,
+    "decision_rule": "accept when score is greater than or equal to threshold, otherwise review"
+  },
+  "quality_gates": [
+    "readme constraint scan",
+    "fixture presence check",
+    "metadata JSON parse",
+    "language verifier"
+  ]
+}
