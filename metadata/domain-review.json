@@ -1,0 +1,73 @@
+{
+  "repo": "sonar-parse-http-flow",
+  "language": "Ruby",
+  "category": "Parsers",
+  "goal": "Implement a Ruby parsers project for http state machine modeling, using transition tables and invalid-transition tests.",
+  "review_model": {
+    "terms": [
+      "token drift",
+      "grammar width",
+      "label quality",
+      "error locality"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "token drift",
+      "signal": 47,
+      "slack": 25,
+      "drag": 29,
+      "confidence": 50,
+      "score": 82,
+      "lane": "hold"
+    },
+    {
+      "name": "stress",
+      "focus": "grammar width",
+      "signal": 43,
+      "slack": 22,
+      "drag": 18,
+      "confidence": 58,
+      "score": 112,
+      "lane": "watch"
+    },
+    {
+      "name": "edge",
+      "focus": "label quality",
+      "signal": 46,
+      "slack": 44,
+      "drag": 11,
+      "confidence": 73,
+      "score": 176,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "error locality",
+      "signal": 69,
+      "slack": 25,
+      "drag": 8,
+      "confidence": 52,
+      "score": 191,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "token drift",
+      "signal": 90,
+      "slack": 48,
+      "drag": 17,
+      "confidence": 46,
+      "score": 223,
+      "lane": "ship"
+    }
+  ]
+}
